@@ -1,0 +1,28 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+<html lang="en"  xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<form method="post" action="/content/save">
+
+    <input type="text" name="cid"  th:value="${contents!=null and contents.cid!=null}?${contents.cid}: ''" id="cid"/>
+    <input type="text" name="name" th:value="${contents!=null and contents.name!=null}?${contents.name}: ''" id="name"/>
+
+    <select name="cid2">
+        <option value="-1">状态</option>
+        <option value="0" th:selected="${contents.cid==0}">普通菜</option>
+        <option value="1" th:selected="${contents.cid==1}">早晚餐</option>
+    </select>
+
+    <input type="checkbox" name="cid1" th:value="12346" th:title="11" th:checked="${contents.cid==1}"/>
+    <input type="checkbox" name="cid2" th:value="22346" th:title="22" th:checked="${contents.cid==2}"/>
+    <input type="checkbox" name="cid3" th:value="33346" th:title="33" th:checked="${contents.cid==3}"/>
+
+    <button type="submit">测试提交</button>
+</form>
+
+</body>
+</html>

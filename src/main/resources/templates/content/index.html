@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <title>test</title>
+</head>
+<body>
+
+<table class="layui-table admin-table">
+    <thead>
+    <tr>
+        <th style="width:200px;">名称</th>
+        <th>分类</th>
+        <th style="width:140px;">创建时间</th>
+        <th style="width:250px;">操作</th>
+    </tr>
+    </thead>
+    <tbody id="content">
+    <th:block th:each="content : ${contents}">
+        <tr>
+            <td style="text-align: center;" th:text="${content.title}"></td>
+            <td style="text-align: center;" th:text="${content.slug}"></td>
+            <td style="text-align: center;" th:text="${content.created}"></td>
+            <td style="text-align: center;" th:text="${content.modified}"></td>
+        </tr>
+    </th:block>
+    </tbody>
+</table>
+
+<div th:replace="common/pager :: page1(${pageinfo})"></div>
+
+</body>
+</html>
